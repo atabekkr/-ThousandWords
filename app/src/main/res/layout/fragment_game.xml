@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.GameFragment">
+
+    <ImageView
+        android:id="@+id/music"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="16dp"
+        android:padding="8dp"
+        android:src="@drawable/ic_music" />
+
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1/10"
+        android:textSize="24sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progress_linear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_result"
+        app:layout_constraintBottom_toTopOf="@id/tv_question"
+        android:progress="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guidline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="32sp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_option1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        app:layout_constraintTop_toBottomOf="@id/guidline"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        app:cornerRadius="24dp"
+        app:strokeWidth="2dp"
+        app:strokeColor="@color/teal_200"
+        android:letterSpacing="0.15"
+
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_option2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        app:layout_constraintTop_toBottomOf="@id/btn_option1"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        app:cornerRadius="24dp"
+        app:strokeWidth="2dp"
+        app:strokeColor="@color/teal_200"
+        android:letterSpacing="0.15"
+        android:layout_marginTop="8dp"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_option3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        app:layout_constraintTop_toBottomOf="@id/btn_option2"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        app:cornerRadius="24dp"
+        app:strokeWidth="2dp"
+        app:strokeColor="@color/teal_200"
+        android:letterSpacing="0.15"
+        android:layout_marginTop="8dp"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_option4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        app:layout_constraintTop_toBottomOf="@id/btn_option3"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        app:cornerRadius="24dp"
+        app:strokeWidth="2dp"
+        app:strokeColor="@color/teal_200"
+        android:letterSpacing="0.15"
+        android:layout_marginTop="8dp"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        app:layout_constraintTop_toBottomOf="@id/btn_option4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:cornerRadius="24dp"
+        app:strokeWidth="2dp"
+        android:backgroundTint="#9C27B0"
+        android:letterSpacing="0.15"
+        android:padding="16dp"
+        android:text="@string/text_submit"
+        />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

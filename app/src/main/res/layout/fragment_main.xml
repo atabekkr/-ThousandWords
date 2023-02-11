@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.MainFragment">
+
+
+    <TextView
+        android:id="@+id/tv_learned"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/tv_rank"
+        app:layout_constraintEnd_toEndOf="@id/tv_rank"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Выучено"
+        android:textSize="32sp"
+        android:layout_marginTop="64dp" />
+
+    <TextView
+        android:id="@+id/tv_rank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_learned"
+        android:text="1/10"
+        android:textSize="32sp" />
+
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberSigned"
+        app:layout_constraintTop_toBottomOf="@id/tv_rank"
+        app:layout_constraintBottom_toTopOf="@id/btn_start"
+        android:layout_marginHorizontal="32dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/text_start"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:padding="16dp"
+        app:cornerRadius="24dp"
+        android:layout_margin="32dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
