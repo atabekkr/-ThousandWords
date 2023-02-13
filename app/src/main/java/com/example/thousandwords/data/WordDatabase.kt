@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [Word::class], version = 1)
+@Database(entities = [Word::class], version = 3)
 abstract class WordDatabase: RoomDatabase() {
 
     companion object {
@@ -16,8 +16,8 @@ abstract class WordDatabase: RoomDatabase() {
                 return it
             }
 
-            val db = Room.databaseBuilder(context, WordDatabase::class.java, "thousand-words.db")
-                .createFromAsset("thousandwords.db")
+            val db = Room.databaseBuilder(context, WordDatabase::class.java, "mock_data_base.db")
+                .createFromAsset("mock_data_base.db")
                 .allowMainThreadQueries()
                 .build()
 

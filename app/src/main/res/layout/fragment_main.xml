@@ -4,44 +4,48 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/fon"
     tools:context=".ui.MainFragment">
-
 
     <TextView
         android:id="@+id/tv_learned"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/tv_rank"
-        app:layout_constraintEnd_toEndOf="@id/tv_rank"
+        app:layout_constraintStart_toStartOf="@id/btn_learned"
+        app:layout_constraintEnd_toEndOf="@id/btn_learned"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="Выучено"
+        android:text="@string/text_learned"
+        android:textColor="@color/white"
         android:textSize="32sp"
-        android:layout_marginTop="64dp" />
+        android:layout_marginTop="64dp"
+        android:fontFamily="@font/extra_bold_italic"
+        />
 
-    <TextView
-        android:id="@+id/tv_rank"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_learned"
-        android:text="1/10"
-        android:textSize="32sp" />
-
-    <EditText
-        android:id="@+id/et_name"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_learned"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="numberSigned"
-        app:layout_constraintTop_toBottomOf="@id/tv_rank"
-        app:layout_constraintBottom_toTopOf="@id/btn_start"
-        android:layout_marginHorizontal="32dp" />
+        android:text="1 из 1000"
+        android:fontFamily="@font/extra_bold_italic"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/tv_learned"
+        app:iconGravity="end"
+        app:icon="@drawable/next"
+        app:iconTint="@color/white"
+        app:strokeWidth="2dp"
+        app:strokeColor="@color/white"
+        android:layout_marginHorizontal="32dp"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_start"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/text_start"
+        android:textColor="@color/white"
+        android:fontFamily="@font/extra_bold_italic"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

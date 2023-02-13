@@ -6,7 +6,7 @@ import androidx.room.Query
 @Dao
 interface WordDao {
 
-    @Query("SELECT * FROM QUESTIONS")
+    @Query("SELECT * FROM questions")
     fun getAllWords(): List<Word>
 
     @Query("SELECT * FROM QUESTIONS WHERE id=:topic_Id")

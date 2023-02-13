@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">ThousandWords</string>
-    <string name="text_start">start</string>
+    <string name="text_start">пройти тест</string>
     <string name="text_submit">submit</string>
     <string name="text_continue">continue</string>
     <string name="text_finish">finish</string>
+    <string name="text_learned">Выучено</string>
+    <string name="text_test">Количество тестов</string>
+    <string name="text_start_dialog">начать</string>
 </resources>

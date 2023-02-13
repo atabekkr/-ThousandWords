@@ -28,7 +28,7 @@ class GameFragment: Fragment(R.layout.fragment_game) {
     private val navArgs: GameFragmentArgs by navArgs()
     private var check: Int = 0
     private lateinit var sound: MediaPlayer
-    private lateinit var questions: List<Word>
+    private lateinit var questions: MutableList<Word>
 
     @SuppressLint("DiscouragedApi")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -38,7 +38,8 @@ class GameFragment: Fragment(R.layout.fragment_game) {
         db = WordDatabase.getInstance(requireContext())
         dao = db.getWordDao()
 
-        questions = dao.getAllWords().shuffled()
+        questions = dao.getAllWords().toMutableList()
+        questions.shuffle()
 
         list = mutableListOf(binding.btnOption1, binding.btnOption2, binding.btnOption3, binding.btnOption4)
 
@@ -72,7 +73,6 @@ class GameFragment: Fragment(R.layout.fragment_game) {
                     getString(R.string.text_submit) -> checkAnswer(b)
                     getString(R.string.text_continue) -> {
                         currentQuestionId++
-                        //progressLinear.progress = currentQuestionId - 1
                         setQuestions()
                     }
                     getString(R.string.text_finish) -> {
@@ -92,17 +92,20 @@ class GameFragment: Fragment(R.layout.fragment_game) {
 
             tvResult.text = currentQuestionId.toString() + "/${navArgs.querity}"
 
-            tvQuestion.text = questions[currentQuestionId].word
+            tvQuestion.text = questions[currentQuestionId - 1].word
 
-            var currentAnswer = questions[currentQuestionId].translation
+            var currentAnswer = questions[currentQuestionId - 1].translation
             val answerList: MutableList<String> = dao.getAllAnswers().toMutableList()
 
+            val soundOfWord = questions[currentQuestionId - 1].word ?: "sugar"
+
             val music1 = binding.root.context.resources.getIdentifier(
-                questions[currentQuestionId].word,
+                soundOfWord,
                 "raw",
                 binding.root.context.packageName
             )
 
+            Log.d("TTTT",  "${questions[currentQuestionId - 1].word} -> $music1")
             sound = MediaPlayer.create(requireContext(), music1)
             sound.start()
 
@@ -152,7 +155,7 @@ class GameFragment: Fragment(R.layout.fragment_game) {
     }
 
     private fun checkAnswer(button: Button) {
-        val currentQuestion = questions[currentQuestionId]
+        val currentQuestion = questions[currentQuestionId - 1]
 
         if (currentQuestion.translation == button.text.toString()) {
             check++

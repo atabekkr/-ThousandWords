@@ -17,10 +17,12 @@ class MainFragment: Fragment(R.layout.fragment_main) {
         binding = FragmentMainBinding.bind(view)
 
         binding.btnStart.setOnClickListener {
-            if (binding.etName.text.isNotEmpty() && binding.etName.text[0] != '0') {
+            val dialog = GameDialog()
+            dialog.show(requireActivity().supportFragmentManager, dialog.tag)
 
+            dialog.setOnAddSuccessListener {
                 findNavController().navigate(
-                    MainFragmentDirections.actionMainFragmentToGameFragment(binding.etName.text.toString())
+                    MainFragmentDirections.actionMainFragmentToGameFragment(it)
                 )
             }
         }
